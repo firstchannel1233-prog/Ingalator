@@ -144,22 +144,24 @@
   }
   .patch-inner {
     display: grid;
-    grid-template-columns: 360px 1fr;
+    grid-template-columns: 320px 1fr;
     gap: 0;
   }
   .patch-photo {
     background: var(--navy);
     border-right: 1px solid var(--line);
-    display:grid; grid-template-columns:1fr 1fr;
-    min-height:380px; overflow:hidden; position:relative;
+    display:flex; flex-direction:column;
+    min-height:480px; overflow:hidden; position:relative;
   }
   .patch-photo img {
-    width:100%; height:100%; object-fit:cover; display:block;
+    width:100%; height:100%; object-fit:contain; display:block;
   }
   .patch-photo .photo-half {
-    overflow:hidden; position:relative; min-height:100%;
+    flex:1; overflow:hidden; position:relative;
+    background:#EDE9E2;
+    display:flex; align-items:center; justify-content:center;
   }
-  .patch-photo .photo-half:first-child { border-right:1px solid var(--line); }
+  .patch-photo .photo-half:first-child { border-bottom:1px solid var(--line); }
   .patch-photo .photo-placeholder {
     display:flex; flex-direction:column; align-items:center;
     gap:12px; color:var(--horizon); font-size:12px; text-align:center; padding:24px;
@@ -239,8 +241,12 @@
     overflow:hidden; position:relative;
   }
   .inh-photo img { width:100%; height:100%; object-fit:cover; display:block; }
-  .inh-photo.dual { display:grid; grid-template-columns:1fr 1fr; }
-  .inh-photo.dual .photo-half { overflow:hidden; min-height:100%; }
+  .inh-photo.dual { display:grid; grid-template-columns:1fr 1fr; aspect-ratio:16/10; background:#EDE9E2; }
+  .inh-photo.dual .photo-half {
+    overflow:hidden; min-height:100%; display:flex; align-items:center; justify-content:center;
+    background:#EDE9E2;
+  }
+  .inh-photo.dual .photo-half img { object-fit:contain; }
   .inh-photo.dual .photo-half:first-child { border-right:1px solid var(--line); }
   .inh-photo .photo-placeholder {
     display:flex; flex-direction:column; align-items:center;
@@ -342,7 +348,7 @@
     .wrap { padding:0 20px 60px; }
     .header-inner { padding:0 20px 48px; }
     .patch-inner { grid-template-columns:1fr; }
-    .patch-photo { min-height:220px; border-right:none; border-bottom:1px solid var(--line); }
+    .patch-photo { min-height:360px; border-right:none; border-bottom:1px solid var(--line); }
     .patch-content { padding:24px 20px; }
     .patch-features { grid-template-columns:1fr; }
     .inhalers-grid { grid-template-columns:1fr; }
