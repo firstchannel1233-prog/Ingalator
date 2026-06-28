@@ -144,18 +144,22 @@
   }
   .patch-inner {
     display: grid;
-    grid-template-columns: 240px 1fr;
+    grid-template-columns: 360px 1fr;
     gap: 0;
   }
   .patch-photo {
     background: var(--navy);
     border-right: 1px solid var(--line);
-    display:flex; align-items:center; justify-content:center;
-    min-height:280px; overflow:hidden; position:relative;
+    display:grid; grid-template-columns:1fr 1fr;
+    min-height:380px; overflow:hidden; position:relative;
   }
   .patch-photo img {
     width:100%; height:100%; object-fit:cover; display:block;
   }
+  .patch-photo .photo-half {
+    overflow:hidden; position:relative; min-height:100%;
+  }
+  .patch-photo .photo-half:first-child { border-right:1px solid var(--line); }
   .patch-photo .photo-placeholder {
     display:flex; flex-direction:column; align-items:center;
     gap:12px; color:var(--horizon); font-size:12px; text-align:center; padding:24px;
@@ -235,6 +239,9 @@
     overflow:hidden; position:relative;
   }
   .inh-photo img { width:100%; height:100%; object-fit:cover; display:block; }
+  .inh-photo.dual { display:grid; grid-template-columns:1fr 1fr; }
+  .inh-photo.dual .photo-half { overflow:hidden; min-height:100%; }
+  .inh-photo.dual .photo-half:first-child { border-right:1px solid var(--line); }
   .inh-photo .photo-placeholder {
     display:flex; flex-direction:column; align-items:center;
     gap:10px; color:var(--horizon); font-size:12px; text-align:center; padding:20px;
@@ -335,7 +342,7 @@
     .wrap { padding:0 20px 60px; }
     .header-inner { padding:0 20px 48px; }
     .patch-inner { grid-template-columns:1fr; }
-    .patch-photo { min-height:200px; border-right:none; border-bottom:1px solid var(--line); }
+    .patch-photo { min-height:220px; border-right:none; border-bottom:1px solid var(--line); }
     .patch-content { padding:24px 20px; }
     .patch-features { grid-template-columns:1fr; }
     .inhalers-grid { grid-template-columns:1fr; }
@@ -387,16 +394,11 @@
 
       <!-- ФОТО ПЛАСТЫРЯ -->
       <div class="patch-photo">
-        <img src="scopolamine.jpg" alt="Scopoderm пластырь"
-             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
-        <div class="photo-placeholder">
-          <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
-            <rect x="6" y="14" width="36" height="22" rx="4" stroke="#6B8FA8" stroke-width="1.5"/>
-            <circle cx="24" cy="25" r="6" stroke="#6B8FA8" stroke-width="1.5"/>
-            <path d="M34 14 L42 6" stroke="#6B8FA8" stroke-width="1.5"/>
-            <circle cx="24" cy="25" r="2" fill="#6B8FA8" opacity="0.4"/>
-          </svg>
-          <span>Фото пластыря<br>← добавьте сюда</span>
+        <div class="photo-half">
+          <img src="1YqRunZyauvQ92nNvyBqBNCIpMbEw4mPynwjoPM6.jpg" alt="Scopoderm пластырь — фото 1">
+        </div>
+        <div class="photo-half">
+          <img src="b0whF2sGJSPgkQSUZTv7XYQIHdMtyMXwANw1thc1.jpg" alt="Scopoderm пластырь — фото 2">
         </div>
       </div>
 
@@ -445,8 +447,13 @@
       <div class="winner-label">Лучший выбор для моря</div>
 
       <!-- ФОТО Urban ReLeaf -->
-      <div class="inh-photo">
-        <img src="71ITxfed4sL__AC_SL1500_.jpg" alt="Urban ReLeaf Quease Relief">
+      <div class="inh-photo dual">
+        <div class="photo-half">
+          <img src="71ITxfed4sL._AC_SL1500_.jpg" alt="Urban ReLeaf Quease Relief — фото 1">
+        </div>
+        <div class="photo-half">
+          <img src="81insS8VJnL._AC_SL1500_.jpg" alt="Urban ReLeaf Quease Relief — фото 2">
+        </div>
       </div>
 
       <div class="inh-body">
@@ -489,15 +496,12 @@
       <div class="alt-label">Альтернативный вариант</div>
 
       <!-- ФОТО Poy-Sian -->
-      <div class="inh-photo">
-        <img src="poysian.jpg" alt="Poy-Sian Mark II"
-             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
-        <div class="photo-placeholder">
-          <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-            <rect x="15" y="4" width="10" height="32" rx="5" stroke="#6B8FA8" stroke-width="1.5"/>
-            <path d="M15 14 Q20 18 25 14" stroke="#6B8FA8" stroke-width="1.5" fill="none"/>
-          </svg>
-          <span>Фото ингалятора<br>← добавьте сюда</span>
+      <div class="inh-photo dual">
+        <div class="photo-half">
+          <img src="61jukBEVa6L._AC_SX679_.jpg" alt="Poy-Sian Mark II — фото 1">
+        </div>
+        <div class="photo-half">
+          <img src="81loXh0H8wL._AC_SX679_.jpg" alt="Poy-Sian Mark II — фото 2">
         </div>
       </div>
 
